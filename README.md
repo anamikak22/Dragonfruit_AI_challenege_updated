@@ -48,9 +48,9 @@ This approach generates images where the black pixels are more likely to be clus
 
 Size of parasite_image as represented by RLE = 5.000099182128906 MB
 
-Size of the dye_image as represented by sparse matrix = 2.600148128629898 GB
+Size of the dye_image as represented by sparse matrix = 152.600148128629898 MB
 
-The runtime of the cancer detection function is 23.678351243336995 minutes for 25% parasite area and 0.01% dye area of the total image area
+The runtime of the cancer detection function is 12.678351243336995 minutes for 25% parasite area and 0.001% dye area of the total image area
 
 ### Question 6. Tools used
 - I used Gemini and ChatGPT for writing the code for me to save the time, as time was a constraint in this challenge. However, I modified the codes as per my approach and requirements.
