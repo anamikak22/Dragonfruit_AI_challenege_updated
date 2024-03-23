@@ -46,6 +46,10 @@ This approach generates images where the black pixels are more likely to be clus
 
 ***Actual Runtime:*** Since, for the detection of cancer, we need to generate 100,000*100,000 pixels images which is taking a huge memory while running the generation functions, I could not compute the actual runtime on my computer. However, I computed the actual storage and runtime on a server with sufficient RAM storage. and the results are as follows:
 
+Size of parasite_image as represented by RLE = 5.000099182128906 MB
+
+Size of the dye_image as represented by sparse matrix = 44.937133789063504 MB
+
 The runtime of the cancer detection function is 0.23678351243336995 minutes for 25% parasite area and 0.01% dye area of the total image area
 
 ### Question 6. Tools used
