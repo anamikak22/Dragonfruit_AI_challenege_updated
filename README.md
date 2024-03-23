@@ -48,7 +48,7 @@ This approach generates images where the black pixels are more likely to be clus
 
 size of the parasite_image:  5.000099182128906 MB
 
-size of the dye image:  0.00449371337890625 MB
+size of the dye image:  44.937133789062503 MB
 
 Cancer detected: False
 
