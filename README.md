@@ -6,13 +6,13 @@ Finding that there were a few issues with the previous approach I took, I came u
 - RLE encodes the image as the starting posiion of the pixel and its ending position. However, to ***optimise*** more in terms of space, we only encode black pixels as encoding both white and black pixels would take unnecessary space.
 - Each tuple in the RLE list takes 16 bytes (8 for the starting position and 8 for the end position for each row).
 - There will be 100,000 elements in the RLE_data and each row can contain upto 10-12 different runs of black pixels.
-- The approximate memory that the RLE representation would take will be 100,000*16*10 bytes = 15.26 MB
-- In the worst case, the black pixels will be present alternatively in each row, hence each row will contain 50,000 elements. Hence, in this case, the occupied memory will be 100,000*16*50,000 bytes = 74.5 GB. But this case will be highly unlikely.
+- The approximate memory that the RLE representation would take will be 100,000\*16\*10 bytes = 15.26 MB
+- In the worst case, the black pixels will be present alternatively in each row, hence each row will contain 50,000 elements. Hence, in this case, the occupied memory will be 100,000\*16\*50,000 bytes = 74.5 GB. But this case will be highly unlikely.
 
 **Dye Sensor Image**:
 - In this case, the dye will be sparsely located in the image. Therefore, it will be most efficient to store only the coordinates which are lit. Hence, we use a sparse representation to store the images. For that, we chose the list data structure in python that will only store the coordinates from the image that are lit.
 - In the worst case, the dye will acquire all the area of the parasite body. Therefore, would require the memory equal to 16*parasite_body_area which can be approx. 149.01 GB (if the parasite body acquires all the area in the image). However, this case is highly impractical.
-- Therefore, assuming that the dye acquires 15% of the total parsite body area and the parasite body area is 40% of the total image area, the required memory for the dye sensor image would be approx. 100,000*100,000*0.4*0.15*16 bytes = 8.94 GB.
+- Therefore, assuming that the dye acquires 15% of the total parsite body area and the parasite body area is 40% of the total image area, the required memory for the dye sensor image would be approx. 100,000\*100,000\*0.4\*0.15\*16 bytes = 8.94 GB.
 
 ### Question 2. Efficient Data Structure to store the images
 **Microscopic Image**:
