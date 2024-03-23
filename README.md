@@ -44,7 +44,7 @@ This approach generates images where the black pixels are more likely to be clus
 - Binary Arithmetic Coding: Achieves near-optimal compression but is computationally expensive for both encoding and decoding. Runtime will be slower than RLE and LZMA.
 - Quadtrees: Indexing based quad trees can be used for faster information retrieval. However, it will not be as storage efficient as RLE and sparse matrix in our case.
 
-***Actual Runtime:*** Since, for the detection of cancer, we need to generate 100,000*100,000 pixels images which is taking a huge memory while running the generation functions, I could not compute the actual runtime on my computer. However, I computed the actual storage and runtime on a server with sufficient RAM storage. and the results are as follows:
+***Actual Runtime:*** Since, for the detection of cancer, we need to generate 100,000*100,000 pixels images which is taking a huge memory while running the generation functions, I could not compute the actual runtime on my computer. However, I computed the actual storage and runtime on a server with sufficient RAM storage, and the results are as follows:
 
 Size of parasite_image as represented by RLE = 5.000099182128906 MB
 
