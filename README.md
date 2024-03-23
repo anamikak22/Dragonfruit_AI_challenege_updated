@@ -49,7 +49,7 @@ This approach generates images where the black pixels are more likely to be clus
 size of the parasite_image:  5.000099182128906  MB
 size of the dye image:  0.00449371337890625  MB
 Cancer detected: False
-The runtime of the cancer detection function is  0.23678351243336995  minutes
+The runtime of the cancer detection function is 0.23678351243336995 minutes
 
 ### Question 6. Tools used
 - I used Gemini and ChatGPT for writing the code for me to save the time, as time was a constraint in this challenge. However, I modified the codes as per my approach and requirements.
