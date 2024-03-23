@@ -4,15 +4,15 @@ Finding that there were a few issues with the previous approach I took, I came u
 **Microscopic Image**:
 - As the parasite body is known to be a blob like structure of arbitrary shape which wil be a continuous region of black pixels, it will be most efficient to use ***Run-Length-Encoding (RLE)*** for the microscopic image.
 - RLE encodes the image as the starting posiion of the pixel and its ending position. However, to ***optimise*** more in terms of space, we only encode black pixels as encoding both white and black pixels would take unnecessary space.
-- Each tuple in the RLE list takes 16 bytes (8 for the starting position and 8 for the end position for each row).
+- Each tuple in the RLE dictionary takes 4*3 bytes (4 for the row, 4 for the starting position and 4 for the end position for each row).
 - There will be 100,000 elements in the RLE_data and each row can contain upto 10-12 different runs of black pixels.
-- The approximate memory that the RLE representation would take will be 100,000\*16\*10 bytes = 15.26 MB
-- In the worst case, the black pixels will be present alternatively in each row, hence each row will contain 50,000 elements. Hence, in this case, the occupied memory will be 100,000\*16\*50,000 bytes = 74.5 GB. But this case will be highly unlikely.
+- The approximate memory that the RLE representation would take will be 100,000\*12\*10 bytes = 11.44 MB
+- In the worst case, the black pixels will be present alternatively in each row, hence each row will contain 50,000 elements. Hence, in this case, the occupied memory will be 100,000\*8\*50,000 bytes = 37.25 GB. But this case will be highly unlikely.
 
 **Dye Sensor Image**:
 - In this case, the dye will be sparsely located in the image. Therefore, it will be most efficient to store only the coordinates which are lit. Hence, we use a sparse representation to store the images. For that, we chose the list data structure in python that will only store the coordinates from the image that are lit.
-- In the worst case, the dye will acquire all the area of the parasite body. Therefore, would require the memory equal to 16*parasite_body_area which can be approx. 149.01 GB (if the parasite body acquires all the area in the image). However, this case is highly impractical.
-- Therefore, assuming that the dye acquires 15% of the total parsite body area and the parasite body area is 40% of the total image area, the required memory for the dye sensor image would be approx. 100,000\*100,000\*0.4\*0.15\*16 bytes = 8.94 GB.
+- In the worst case, the dye will acquire all the area of the parasite body. Therefore, would require the memory equal to 8*parasite_body_area which can be approx. 74.50 GB (if the parasite body acquires all the area in the image). However, this case is highly impractical.
+- Therefore, assuming that the dye acquires 15% of the total parsite body area and the parasite body area is 40% of the total image area, the required memory for the dye sensor image would be approx. 100,000\*100,000\*0.4\*0.15\*8 bytes = 4.47 GB.
 
 ### Question 2. Efficient Data Structure to store the images
 **Microscopic Image**:
@@ -36,7 +36,7 @@ This approach generates images where the black pixels are more likely to be clus
 ### Question 4. Cancer Detection with optimised runtime
 - To optimise the runtine of the cancer detection function, we used the fact that the number of lit pixels will be much lower than the number of parasite pixels. Therefore, to calculate the total_dye amount, we iterate for every lit pixel and check if is present in the parasite body. This calculation can be done in O(number of lit pixels).
 - We calculate the parasite area separately in approx, linear time by assuming that each roe contains 10-12 runs of black pixels.
-- Therefore, we optimised the above function and reduced the time complxity to linear time.
+- Therefore, we optimised the above function and reduced the time complexity to linear time.
 
 ### Question 5. Alternative Data Structures for Image Compression
 - Run-Length Encoding (RLE): (Already implemented) Works well for binary images with large areas of the same value (e.g., parasite background) but might not be the most efficient for complex shapes like the parasite itself. Runtime is generally fast for encoding and decoding.
